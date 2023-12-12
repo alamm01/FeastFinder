@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS onclave_db;
+CREATE DATABASE onclave_db;
