@@ -1,16 +1,17 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Reservation extends Model {}
+class Seating extends Model {}
+
+//the purpose of this table is to contain all the resource availability information
+//we substract resrouce from the table when reservation is made, and we add when cancellation
+//date and time?
+//, booth, 8 guests
 
 
-//attributes?
-//booth, table, bar, handicap_accisable, 
-//how do we check for availability? for a date and time?
 
 
-
-Reservation.init(
+Seating.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -18,18 +19,13 @@ Reservation.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    full_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    special_request: {
+    description: {
       type: DataTypes.STRING,
-      allowNull: true,
     },
-    guest_counts: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -48,8 +44,8 @@ Reservation.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'reservation',
+    modelName: 'seating',
   }
 );
 
-module.exports = Reservation;
+module.exports = Seating;
