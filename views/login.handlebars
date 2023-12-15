@@ -1,41 +1,53 @@
 <div class="row">
   <div class="col-md-6">
-    <h2>Login</h2>
+    <div class="card">
+      <div class="card-body">
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
+        <h2 class="card-title fw-bold fs-1">Login </h2>
+
+ 
+        <form class="login-form">
+          <div class="mb-3">
+            <label for="email-login" class="form-label fs-3 fw-semibold">Email address</label>
+            <input type="email" class="form-control" id="email-login" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text fs-bold">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="password-login" class="form-label fs-3 fw-semibold">Password</label>
+            <input type="password" class="form-control" id="password-login">
+          </div>
+          <button type="submit" class="btn btn-form fs-3">Submit</button>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
+
+    </div>
+    <div class="card mt-3">
+      <div class="card-body">
+
+        <h2 class="card-title fw-bold fs-1">Signup </h2>
+
+ 
+        <form class="signup-form">
+          <div class="mb-3">
+            <label for="name-signup" class="form-label fs-3 fw-semibold">Name</label>
+            <input type="text" class="form-control" id="name-signup">
+          </div>
+          <div class="mb-3">
+            <label for="email-signup" class="form-label fs-3 fw-semibold">Email address</label>
+            <input type="email" class="form-control" id="email-signup" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text fs-bold">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="password-signup" class="form-label fs-3 fw-semibold">Password</label>
+            <input type="password" class="form-control" id="password-signup">
+          </div>
+          <button type="submit" class="btn btn-form fs-3">Submit</button>
+        </form>
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
+
+    </div>
   </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
-
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
+  <div class="col-md-6 login-background">
   </div>
 </div>
 
