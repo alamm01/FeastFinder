@@ -5,13 +5,13 @@
 
 
 const router = require('express').Router();
-const { Reservations, User } = require('../models');
+// const { Reservations, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
+    // Pass only the session flag (logged_in status) into the template
     res.render('homepage', { 
-      projects, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -19,7 +19,8 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/reservation/:id', async (req, res) => {
+
+router.get('/reservation/:id', withAuth, async (req, res) => {
   try {
     const projectData = await Project.findByPk(req.params.id, {
       include: [
