@@ -1,3 +1,7 @@
+body {
+  font-family: 'Whisper', cursive;
+}
+
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
@@ -21,4 +25,15 @@ header, .project:not(:last-child) {
   color: #056605;
   font-weight: bold;
   margin-left: -5px;
+}
+.btn-form {
+  background-color: black;
+  color: white;
+}
+
+.login-background {
+  background-image: url("../images/login-background2.jpg");
+  background-position: center;
+  background-size: contain;
+background-repeat: no-repeat;
 }
