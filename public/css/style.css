@@ -2,6 +2,10 @@ body {
   font-family: 'Whisper', cursive;
 }
 
+a {
+  color:black
+}
+
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
