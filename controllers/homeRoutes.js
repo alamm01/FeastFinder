@@ -5,7 +5,8 @@
 
 
 const router = require('express').Router();
-// const { Reservations, User } = require('../models');
+// const { Reservation } = require('../models');
+const { Reservation, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -42,23 +43,111 @@ router.get('/reservation/:id', withAuth, async (req, res) => {
   }
 });
 
-router.get('/profile', withAuth, async (req, res) => {
+function onPageLoad(){
+  router.get('/profile', async (req, res) => {
+    try {
+      const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+        include: [{ model: Reservation }],
+      });
+  
+      const userInfo = userData.get({ plain: true });
+      console.log(userInfo, "testttt");
+      res.render('profile', {
+        ...userInfo,
+        logged_in: true
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(600).json(err);
+    }
+    
+  });
+}
+
+
+
+// router.get('/profile', async (req, res) => {
+
+//   console.log(req);
+//   try {
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: Reservation }],
+//     });
+
+//     const userInfo = userData.get({ plain: true });
+//     console.log(userInfo, "testttt");
+//     res.render('profile', {
+//       ...userInfo,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(600).json(err);
+//   }
+  
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+router.get('/profile', async (req, res) => {
   try {
+    console.log("Session User ID:", req.session.user_id);
+
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      include: [{ model: Reservation }],
     });
 
-    const user = userData.get({ plain: true });
+    if (!userData) {
+      console.log(`User not found with ID: ${req.session.user_id}`);
+      return res.status(404).send('User not found');
+    }
+    let resData;
+    let allresData;
+    if (userData.is_admin){
+      resData = await Reservation.findAll();
+      allresData = resData.map(reservation => reservation.get ({ plain: true}));
+    }
+    console.log(allresData);
+
+    const userInfo = userData.get({ plain: true });
+    console.log("User Info:", userInfo);
 
     res.render('profile', {
-      ...user,
+      ...userInfo,
+      allresData,
       logged_in: true
     });
   } catch (err) {
+    console.error("Error fetching user data:", err);
     res.status(500).json(err);
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log(userInfo, "testttt");
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
@@ -68,5 +157,7 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+// window.onload = onPageLoad
 
 module.exports = router;

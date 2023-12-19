@@ -20,7 +20,7 @@ Reservation.init(
     },
     full_name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     special_request: {
       type: DataTypes.STRING,
@@ -31,6 +31,11 @@ Reservation.init(
         allowNull: false,
       },
     date_created: {
+      type: DataTypes.DATE,
+      allowNull: true,
+      defaultValue: DataTypes.NOW,
+    },
+    date_reserved: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
