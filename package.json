@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "seed": "node seeds/seed.js"
+    "start": "node index.js"
   },
   "engines":{
     "node": "20.9.0",
@@ -14,7 +13,7 @@
 
   },
   "keywords": [],
-  "author": "",
+  "author": "scriptSquad",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.0",
