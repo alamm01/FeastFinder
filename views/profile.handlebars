@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="row">
+    <!-- Left Side: User Information and Current Reservation -->
+    <div class="col-md-6">
+      <h2>User Profile</h2>
+      <p><strong>Name:</strong> {{name}}</p>
+      {{#if is_admin}}
+      <!-- Admin-specific content -->
+      <p><strong>Role:</strong> Admin</p>
+      <!-- Code to display all reservations -->
+      {{#each allresData}}
+      <div>
+        {{!-- <p>Reservation ID: {{id}}</p> --}}
+        <p>Full Name: {{full_name}}</p>
+        <p>Special Request: {{special_request}}</p>
+        <p>Guest Count: {{guest_counts}}</p>
+        <button class="cancel-reservation" data-id="{{id}}">Cancel Reservation</button>
+      </div>
+      {{/each}}
+      {{/if}}
+      <h3>Your Reservation</h3>
+      {{#if true}}
+      {{!-- <p><strong>Date:</strong> {{dateFormat reservation.date_created "YYYY/MM/DD"}}</p> --}}
+
+      {{!-- date_created "YYYY/MM/DD"}}</p> --}}
+
+      {{!--
+      <p><strong>Time:</strong> {{reservation[0].guest_counts}}</p>
+      <p><strong>Guest Count:</strong> {{guest_counts}}</p>
+      <p><strong>Special Request:</strong> {{reservation.special_request}}</p> --}}
+
+      {{#each reservations}}
+      <div>
+        {{!-- <p>Reservation ID: {{id}}</p> --}}
+        <p>Full Name: {{full_name}}</p>
+        <p>Special Request: {{special_request}}</p>
+        <p>Guest Count: {{guest_counts}}</p>
+        <button class="cancel-reservation" data-id="{{id}}">Cancel Reservation</button>
+      </div>
+      {{/each}}
+
+
+
+
+
+      {{else}}
+      <p>No current reservations.</p>
+      {{/if}}
+    </div>
+
+    {{#unless is_admin}}
+    <!-- Right Side: Available Reservation Time Slots -->
+    <div class="col-md-6">
+      <h2>Reservations</h2>
+      <h3>Make a New Reservation</h3>
+
+
+      <div class="reservation-name-input">
+        <label for="reservationName">Reservation Name:</label>
+        <input type="text" id="reservationName" name="reservationName">
+      </div>
+
+      <!-- Date Selector for Reservation -->
+      <div class="reservation-date-input">
+        <label for="reservationDate">Select a Date:</label>
+        <input type="date" id="reservationDate" name="reservationDate">
+      </div>
+
+      <div id="time-slots">
+        <!-- Time slots will be dynamically loaded here using JavaScript -->
+      </div>
+
+      <div class="guest-count-input">
+        <label for="guestCount">Number of Guests:</label>
+        <input type="number" id="guestCount" placeholder="Enter number of guests" min="1" max="10">
+      </div>
+
+      <button id="make-reservation">Make a Reservation</button>
+    </div>
+  </div>
+  {{/unless}}
+</div>
+
+<script src="./js/reservation.js"></script>
