@@ -2,11 +2,16 @@
   "name": "onclave-db",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
+    "start": "node index.js",
     "seed": "node seeds/seed.js"
+  },
+  "engines":{
+    "node": "20.9.0",
+    "npm": "10.1.0"
+
   },
   "keywords": [],
   "author": "",
