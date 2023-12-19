@@ -2,6 +2,9 @@
   <div class="row">
     <!-- Left Side: User Information and Current Reservation -->
     <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+
       <h2>User Profile</h2>
       <p><strong>Name:</strong> {{name}}</p>
       {{#if is_admin}}
@@ -14,7 +17,7 @@
         <p>Full Name: {{full_name}}</p>
         <p>Special Request: {{special_request}}</p>
         <p>Guest Count: {{guest_counts}}</p>
-        <button class="cancel-reservation" data-id="{{id}}">Cancel Reservation</button>
+        <button class="cancel-reservation btn btn-form fw-bold" data-id="{{id}}">Cancel Reservation</button>
       </div>
       {{/each}}
       {{/if}}
@@ -30,12 +33,15 @@
       <p><strong>Special Request:</strong> {{reservation.special_request}}</p> --}}
 
       {{#each reservations}}
-      <div>
+      <div class="card mb-3">
+        <div class="card-body">
         {{!-- <p>Reservation ID: {{id}}</p> --}}
         <p>Full Name: {{full_name}}</p>
         <p>Special Request: {{special_request}}</p>
         <p>Guest Count: {{guest_counts}}</p>
-        <button class="cancel-reservation" data-id="{{id}}">Cancel Reservation</button>
+        <button class="cancel-reservation btn btn-form fw-bold" data-id="{{id}}">Cancel Reservation</button>
+
+        </div>
       </div>
       {{/each}}
 
@@ -46,36 +52,43 @@
       {{else}}
       <p>No current reservations.</p>
       {{/if}}
+        </div>
+      </div>
     </div>
 
     {{#unless is_admin}}
     <!-- Right Side: Available Reservation Time Slots -->
     <div class="col-md-6">
+      <div class=" card">
+        <div class="card-body">
+
       <h2>Reservations</h2>
       <h3>Make a New Reservation</h3>
 
 
-      <div class="reservation-name-input">
-        <label for="reservationName">Reservation Name:</label>
-        <input type="text" id="reservationName" name="reservationName">
+      <div class="reservation-name-input mb-3">
+        <label for="reservationName" class="form-label fw-bold">Reservation Name:</label>
+        <input type="text" id="reservationName" name="reservationName" class="form-control">
       </div>
 
       <!-- Date Selector for Reservation -->
-      <div class="reservation-date-input">
-        <label for="reservationDate">Select a Date:</label>
-        <input type="date" id="reservationDate" name="reservationDate">
+      <div class="reservation-date-input mb-3">
+        <label for="reservationDate" class="form-label fw-bold">Select a Date:</label>
+        <input type="date" id="reservationDate" name="reservationDate" class="form-control" >
       </div>
 
-      <div id="time-slots">
+      <div id="time-slots" class="mb-3">
         <!-- Time slots will be dynamically loaded here using JavaScript -->
       </div>
 
-      <div class="guest-count-input">
-        <label for="guestCount">Number of Guests:</label>
-        <input type="number" id="guestCount" placeholder="Enter number of guests" min="1" max="10">
+      <div class="guest-count-input mb-3">
+        <label for="guestCount" class="form-label fw-bold">Number of Guests:</label>
+        <input type="number" id="guestCount" placeholder="Enter number of guests" min="1" max="10" class="form-control">
       </div>
 
-      <button id="make-reservation">Make a Reservation</button>
+      <button id="make-reservation" class="btn btn-form fw-bold">Make a Reservation</button>
+        </div>
+      </div>
     </div>
   </div>
   {{/unless}}
