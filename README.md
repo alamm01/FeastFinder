@@ -4,7 +4,7 @@
 This is an application for keeping track of you customers and their reservations at your restaurant.
 
 ## Istallation
-Installation of npm "bcrypt", "connect-session-sequelize", "dotenv", "express", "express-handlebars", "express-session", "mysql2", and "sequelize" will be required to run this application. *Check package.json for dependencies*.
+Installation of npm "bcrypt", "connect-session-sequelize", "dotenv", "express", "express-handlebars", "express-session", "mysql2", "nodemailer" and "sequelize" will be required to run this application. *Check package.json for dependencies*.
 
 ## Usage
 This application can keep track of your restaurant patrons and their reservations. Modify the max capacity and reservation availabilites to suit your needs!
