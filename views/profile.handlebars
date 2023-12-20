@@ -14,8 +14,8 @@
       {{#each allresData}}
       <div>
         {{!-- <p>Reservation ID: {{id}}</p> --}}
-        <p>Full Name: {{full_name}}</p>
-        <p>Special Request: {{special_request}}</p>
+        <p>Reservation Name: {{full_name}}</p>
+        {{!-- <p>Date Reserved: {{date_reserved}}</p> --}}
         <p>Guest Count: {{guest_counts}}</p>
         <button class="cancel-reservation btn btn-form fw-bold" data-id="{{id}}">Cancel Reservation</button>
       </div>
@@ -36,8 +36,8 @@
       <div class="card mb-3">
         <div class="card-body">
         {{!-- <p>Reservation ID: {{id}}</p> --}}
-        <p> <span class="fw-semibold">Full Name:</span> {{full_name}}</p>
-        <p><span class="fw-semibold">Special Request:</span> {{special_request}}</p>
+        <p> <span class="fw-semibold">Reservation Name:</span> {{full_name}}</p>
+        {{!-- <p><span class="fw-semibold">Date Reserved:</span> {{date_reserved}}</p> --}}
         <p><span class="fw-semibold">Guest Count:</span> {{guest_counts}}</p>
         <button class="cancel-reservation btn btn-form fw-bold" data-id="{{id}}">Cancel Reservation</button>
 

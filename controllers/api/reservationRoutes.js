@@ -49,21 +49,6 @@ function formatDateTime(date, time) {
 
 // Endpoint to make a reservation
 router.post("/make", async (req, res) => {
-  //   try {
-  //     const { reservationDate, slotTime, guestCount, userId } = req.body; // Add any other needed info
-
-  //     // Here you would include logic to ensure the slot isn't already taken
-  //     // This is just a simple placeholder for creating a reservation
-  //     const newReservation = await Reservation.create({
-  //       date_created: new Date(reservationDate + 'T' + slotTime), // Ensure your date_created can store both date and time
-  //       guest_counts: guestCount,
-  //       user_id: userId, // Replace with actual user session or authentication mechanism
-  //     });
-
-  //     res.status(201).json(newReservation);
-  //   } catch (error) {
-  //     res.status(500).json({ error: error.toString() });
-  //   }
 
   try {
     const userId = req.session.user_id;
