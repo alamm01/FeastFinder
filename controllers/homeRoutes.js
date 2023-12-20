@@ -92,7 +92,7 @@ router.get("/profile", async (req, res) => {
       },
     });
 
-    const userEmail = "huzaifaalam999@gmail.com";
+    const userEmail = "feastfinder999@gmail.com";
     const userName = userInfo.name;
     const mailOptions = {
       from: process.env.mailerEmail,
