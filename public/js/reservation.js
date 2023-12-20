@@ -42,8 +42,8 @@ function loadAvailableSlots(selectedDate) {
                 const slotElement = document.createElement('div');
                 slotElement.className = 'time-slot';
                 slotElement.innerHTML = `
-                    <label class="${slot.isFull ? 'full' : ''}">
-                        <input type="radio" name="slot" value="${slot.time}" ${slot.isFull ? 'disabled' : ''}>
+                    <label class="${slot.isFull ? 'full' : ''} form-check-label fw-bold">
+                        <input type="radio" name="slot" value="${slot.time}" ${slot.isFull ? 'disabled' : ''} class="form-check-input">
                         ${slot.time} - ${slot.isFull ? 'Full' : 'Available'}
                     </label>
                 `;
