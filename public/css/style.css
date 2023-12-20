@@ -3,10 +3,11 @@ body {
 }
 
 a {
-  color:black
+  color: black
 }
 
-header, .project:not(:last-child) {
+header,
+.project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
@@ -30,14 +31,24 @@ header, .project:not(:last-child) {
   font-weight: bold;
   margin-left: -5px;
 }
+
 .btn-form {
   background-color: black;
   color: white;
+}
+
+.homepage-background {
+  background-image: url("../images/homepage-background.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .login-background {
   background-image: url("../images/login-background2.jpg");
   background-position: center;
   background-size: contain;
-background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }
+
