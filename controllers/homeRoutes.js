@@ -37,28 +37,7 @@ router.get("/reservation/:id", withAuth, async (req, res) => {
   }
 });
 
-function onPageLoad() {
-  router.get("/profile", async (req, res) => {
-    try {
-      const userData = await User.findByPk(req.session.user_id, {
-        attributes: { exclude: ["password"] },
-        include: [{ model: Reservation }],
-      });
-
-      const userInfo = userData.get({ plain: true });
-      console.log(userInfo, "testttt");
-      res.render("profile", {
-        ...userInfo,
-        logged_in: true,
-      });
-    } catch (err) {
-      console.log(err);
-      res.status(600).json(err);
-    }
-  });
-}
-
-router.get("/profile", async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     // console.log("Session User ID:", req.session.user_id);
 
