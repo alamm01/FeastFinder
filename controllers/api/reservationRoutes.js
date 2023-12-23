@@ -28,9 +28,6 @@ router.get("/available-slots", async (req, res) => {
     const availableSlotsForDate = generatedSlots.filter(
       (slot) => slot.date === requestedDate
     );
-
-    // You would also check against your reservations in the database to mark slots as full
-    // This is a simplified example where we return all slots as available
     res.json(availableSlotsForDate);
   } catch (error) {
     res.status(500).json({ error: error.toString() });
@@ -68,9 +65,8 @@ router.post("/make", async (req, res) => {
       guest_counts: guestCount,
       user_id: userId,
       full_name,
-      // other fields as needed
     });
-    // res.status(201).json(newReservation);
+
  
 
     return res.status(201).json(newReservation);

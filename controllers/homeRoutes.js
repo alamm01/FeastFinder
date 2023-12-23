@@ -39,7 +39,6 @@ router.get("/reservation/:id", withAuth, async (req, res) => {
 
 router.get("/profile", withAuth, async (req, res) => {
   try {
-    // console.log("Session User ID:", req.session.user_id);
 
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
@@ -71,13 +70,13 @@ router.get("/profile", withAuth, async (req, res) => {
       },
     });
 
-    const userEmail = "feastfinder999@gmail.com";
+    // const userEmail = "feastfinder999@gmail.com";
+    const userEmail = userInfo.email;
     const userName = userInfo.name;
     const mailOptions = {
       from: process.env.mailerEmail,
       to: userEmail,
       subject: "Reservation Confirmation",
-      text: `Thank you ${userName}, your reservation has been confirmed!`,
       html: `Thank you ${userName}, your reservation has been confirmed!`,
     };
 
@@ -111,5 +110,4 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// window.onload = onPageLoad
 module.exports = router;

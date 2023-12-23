@@ -15,7 +15,7 @@ To run this application, install the following npm packages:
 - mysql2
 - nodemailer
 - sequelize
-- Nodemailer
+- nodemailer
 
 ## Usage
 
